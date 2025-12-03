@@ -4,11 +4,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      KARAVAN_GIT_REPOSITORY: https://github.com/VARA-2213/karavan-projects.git
-      KARAVAN_GIT_USER: Karavan
-
-
-      KARAVAN_GIT_PASSWORD: your-password-or-token
+      KARAVAN_GIT_REPOSITORY: KARAVAN_GIT_REPOSITORY=https://github.com/VARA-2213/karavan-projects.git
+KARAVAN_GIT_USER: VARA-2213
+KARAVAN_GIT_PASSWORD: github_pat_...YOUR_TOKEN_HERE
     volumes:
       - //var/run/docker.sock:/var/run/docker.sock
 
@@ -21,4 +19,5 @@ services:
       RABBITMQ_DEFAULT_USER: guest
 
       RABBITMQ_DEFAULT_PASS: guest
+
 
