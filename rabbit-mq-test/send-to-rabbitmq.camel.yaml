@@ -1,5 +1,5 @@
 - route:
-    id: send-to-mq
+    id: send-message-to-mq
     nodePrefixId: route-d67
     from:
       id: Trigger Message every 5s
