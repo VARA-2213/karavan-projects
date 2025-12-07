@@ -9,7 +9,8 @@
         port: 5672
         username: "{{env.MQ_USER}}"
         password: "{{env.MQ_PASSWORD}}"
-        queues: test-queue
+        host: rabbitmq
+        exchangeName: default
       steps:
         - log:
             id: mq-consume-logger
