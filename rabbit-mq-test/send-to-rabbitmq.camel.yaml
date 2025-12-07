@@ -22,7 +22,7 @@
             parameters:
               host: rabbitmq
               port: 5672
-              username: "{{env.MQ_USER}}"
+              username: "{{env:MQ_USER}}"
               exchangeName: default
               routingKey: erp-requests-mq
-              password: "{{env.MQ_PASSWORD}}"
+              password: "{{env:MQ_PASSWORD}}"

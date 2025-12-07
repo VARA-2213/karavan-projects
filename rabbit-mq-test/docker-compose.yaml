@@ -7,5 +7,5 @@ services:
     networks:
       - karavan
     environment:
-      - MQ_USER= guest
-      - MQ_PASSWORD= guest
+      - MQ_USER=guest
+      - MQ_PASSWORD=guest
