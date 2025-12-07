@@ -1,0 +1,28 @@
+- route:
+    id: send-to-mq
+    nodePrefixId: route-d67
+    from:
+      id: Trigger Message every 5s
+      description: Trigger Message every 5s
+      uri: timer
+      parameters:
+        timerName: hello
+        period: "5000"
+      steps:
+        - setBody:
+            id: setBody-d84b
+            expression:
+              simple:
+                id: simple-1be7
+                expression: |
+                  Message sent to RabbitMQ at ${date:now:yyyy-MM-dd HH:mm:ss} `
+        - to:
+            id: send-message-to-mq
+            uri: kamelet:spring-rabbitmq-sink
+            parameters:
+              host: rabbitmq
+              port: 5672
+              routingKey: test-queue
+              username: "{{env:MQ_USER}}"
+              password: "{{env:MQ_PASSWORD}}"
+              exchangeName: default
