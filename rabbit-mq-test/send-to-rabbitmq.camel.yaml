@@ -22,7 +22,5 @@
             parameters:
               host: rabbitmq
               port: 5672
-              username: "{{env:MQ_USER}}"
               exchangeName: default
               routingKey: test-queue
-              password: "{{env:MQ_PASSWORD}}"
