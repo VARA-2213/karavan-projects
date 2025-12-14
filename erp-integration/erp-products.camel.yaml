@@ -1,0 +1,42 @@
+- rest:
+    id: rest-0c69
+    description: ERP Products Service
+    path: products
+    get:
+      - id: get-3c38
+        to: direct:erp-products-route
+- route:
+    id: route-a3ef
+    description: erp-products-route
+    nodePrefixId: route-61e
+    from:
+      id: from-ff9e
+      uri: direct
+      parameters:
+        name: Direct
+      steps:
+        - removeHeader:
+            id: removeHeader-96c0
+            name: Remove all HTTP Headers
+        - to:
+            id: to-bb3f
+            description: Call products OData service
+            uri: http
+            parameters:
+              httpUri: http://host.docker.internal:4004/odata/v4/simple-erp/Products
+              httpMethod: GET
+              proxyAuthMethod: Basic
+        - unmarshal:
+            id: unmarshal-9502
+            json:
+              id: json-4a50
+        - setBody:
+            id: setBody-f45e
+            expression:
+              simple:
+                id: simple-13c5
+                expression: ${body[value]}
+        - marshal:
+            id: marshal-a12e
+            json:
+              id: json-ca8a

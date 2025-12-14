@@ -1,0 +1,8 @@
+services:
+  erp-integration:
+    image: erp-integration
+    restart: always
+    ports:
+      - "8084:8080"
+    networks:
+      - karavan
