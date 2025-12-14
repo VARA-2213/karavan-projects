@@ -17,6 +17,7 @@
       steps:
         - removeHeader:
             id: removeHeader-96c0
+            description: Remove all HTTP Headers
             name: Remove all HTTP Headers
         - to:
             id: to-bb3f
@@ -26,6 +27,7 @@
               httpUri: http://host.docker.internal:4004/odata/v4/simple-erp/Products
               httpMethod: GET
               proxyAuthMethod: Basic
+              throwExceptionOnFailure: true
         - unmarshal:
             id: unmarshal-9502
             json:
